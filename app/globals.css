@@ -140,6 +140,7 @@ body::before {
 /* ─── Marquee ────────────────────────────────────────────────────────────── */
 .marquee-wrap {
   overflow: hidden;
+  width: 100%;
 }
 .marquee-track {
   display: flex;
@@ -147,7 +148,7 @@ body::before {
   will-change: transform;
 }
 .marquee-item {
-  padding: 0 2.5rem;
+  padding: 0 clamp(1.5rem, 2.5vw, 2.5rem);
   flex-shrink: 0;
 }
 
