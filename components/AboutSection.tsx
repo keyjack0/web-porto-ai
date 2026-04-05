@@ -87,11 +87,10 @@ export default function AboutSection() {
       style={{ padding: "96px clamp(24px, 4vw, 48px)" }}
     >
       <div
+        className="responsive-grid about-grid"
         style={{
           maxWidth: "1280px",
           margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
           gap: "80px",
           alignItems: "center",
         }}
@@ -106,8 +105,8 @@ export default function AboutSection() {
           <div style={{ position: "relative" }}>
             <div
               ref={imgRef}
-              className="img-placeholder"
-              style={{ height: "520px", clipPath: "inset(0 100% 0 0)" }}
+              className="img-placeholder about-image"
+              style={{ clipPath: "inset(0 100% 0 0)" }}
             >
               <svg width="100%" height="100%" viewBox="0 0 440 520" xmlns="http://www.w3.org/2000/svg">
                 <rect width="440" height="520" fill="var(--border-color)" />
@@ -125,6 +124,7 @@ export default function AboutSection() {
 
             {/* Floating badge */}
             <div
+              className="about-badge"
               style={{
                 position: "absolute",
                 bottom: "-20px",

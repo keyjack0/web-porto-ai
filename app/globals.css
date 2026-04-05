@@ -359,3 +359,82 @@ body::before {
 .nav-link:hover {
   color: var(--fg);
 }
+
+/* ─── Responsive layout utilities ─────────────────────────────────────── */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 80px;
+}
+@media (min-width: 768px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 80px;
+}
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 650px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 80px;
+}
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.wide-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+@media (min-width: 768px) {
+  .wide-card {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.about-image {
+  width: 100%;
+  min-height: 520px;
+}
+@media (max-width: 767px) {
+  .about-image {
+    min-height: 320px;
+  }
+  .about-badge {
+    position: static !important;
+    transform: none !important;
+    margin-top: 24px !important;
+    right: auto !important;
+    bottom: auto !important;
+  }
+  .responsive-grid,
+  .skills-grid,
+  .contact-grid,
+  .wide-card {
+    gap: 40px;
+  }
+}

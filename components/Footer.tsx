@@ -65,25 +65,7 @@ export default function Footer() {
             ARINDA.DEV
           </a>
 
-          {/* Quick nav */}
-          <nav
-            className="foot-item"
-            style={{
-              display: "flex",
-              gap: "28px",
-              opacity: 0,
-            }}
-          >
-            {["WORK", "ABOUT", "SKILLS", "CONTACT"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="nav-link hover-underline"
-              >
-                {item}
-              </a>
-            ))}
-          </nav>
+         
 
           {/* Back to top */}
           <button
@@ -110,25 +92,25 @@ export default function Footer() {
         <div style={{ height: "1px", background: "var(--border-color)" }} />
 
         {/* Bottom row */}
-        <div
-          className="foot-item"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: "12px",
-            opacity: 0,
-          }}
-        >
-          <div className="float-label">
-            © {year} — ARINDA PUTRI RAHAYU
-          </div>
-          <div className="float-label" style={{ textAlign: "center" }}>
-            UI/UX DESIGNER — FRESH GRADUATE S1 SISTEM INFORMASI
-          </div>
-          <div className="float-label">PALEMBANG, INDONESIA</div>
-        </div>
+    <div
+  className="foot-item"
+  style={{
+    display: "flex",
+    flexDirection: "column", // ini kuncinya
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    gap: "8px",
+    opacity: 1, // biar kelihatan
+  }}
+>
+  <div className="float-label" style={{ fontSize: "12px", letterSpacing: "2px" }}>
+    © {year} — UI/UX DESIGNER 
+  </div>
+  <div className="float-label" style={{ fontSize: "12px", letterSpacing: "2px" }}>
+    PALEMBANG, ID
+  </div>
+</div>
       </div>
     </footer>
   );

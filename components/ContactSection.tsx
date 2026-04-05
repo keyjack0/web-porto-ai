@@ -75,7 +75,7 @@ export default function ContactSection() {
         </div>
 
         {/* Two columns */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px" }}>
+        <div className="responsive-grid contact-grid" style={{ gap: "80px" }}>
 
           {/* Left: info */}
           <div ref={leftRef} style={{ opacity: 0 }}>

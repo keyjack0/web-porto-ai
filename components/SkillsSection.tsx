@@ -110,9 +110,8 @@ export default function SkillsSection() {
 
         {/* Two-column layout */}
         <div
+          className="skills-grid"
           style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
             gap: "80px",
           }}
         >
@@ -171,9 +170,8 @@ export default function SkillsSection() {
               TOOLS
             </div>
             <div
+              className="tools-grid"
               style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(3, 1fr)",
                 gap: "12px",
                 marginBottom: "56px",
               }}
@@ -205,6 +203,11 @@ export default function SkillsSection() {
                 </div>
               ))}
             </div>
+
+            {/* Hidden div that was accidentally showing */}
+            {false && (
+              <div></div>
+            )}
 
             {/* Design Process */}
             <div className="float-label" style={{ marginBottom: "24px" }}>

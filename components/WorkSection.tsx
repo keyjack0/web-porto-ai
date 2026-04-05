@@ -193,7 +193,7 @@ function WideCard() {
   }, []);
 
   return (
-    <div ref={ref} className="project-card" style={{ opacity: 0, display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+    <div ref={ref} className="project-card wide-card" style={{ opacity: 0 }}>
       <div className="img-placeholder" style={{ minHeight: "300px" }}>
         <SvgSehatku />
       </div>
@@ -248,7 +248,22 @@ export default function WorkSection() {
         </div>
 
         {/* Row 1 */}
-        <div style={{ display: "grid", gridTemplateColumns: "6fr 5fr", gap: "24px", marginBottom: "24px" }}>
+        <div 
+          className="responsive-grid work-grid" 
+          style={{ 
+            display: "grid",
+            gridTemplateColumns: "1fr",
+            gap: "24px",
+            marginBottom: "24px"
+          }}
+        >
+          <style>{`
+            @media (min-width: 768px) {
+              .work-grid {
+                grid-template-columns: 6fr 5fr !important;
+              }
+            }
+          `}</style>
           <ProjectCard project={projects[0]} imgHeight={400}><SvgSiakad /></ProjectCard>
           <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
             <ProjectCard project={projects[1]} imgHeight={185}><SvgDashboard /></ProjectCard>

@@ -62,7 +62,7 @@ export default function HeroSection() {
         paddingBottom: "80px",
         paddingLeft: "clamp(24px, 4vw, 48px)",
         paddingRight: "clamp(24px, 4vw, 48px)",
-        paddingTop: "128px",
+        paddingTop: "clamp(96px, 14vw, 128px)",
         position: "relative",
         overflow: "hidden",
       }}
@@ -139,14 +139,16 @@ export default function HeroSection() {
         {/* Bottom row */}
         <div
           style={{
-            display: "flex",
-            flexDirection: "column",
+            display: "grid",
+            gridTemplateColumns: "1fr",
             gap: "32px",
+            opacity: 0,
           }}
-          className="md:flex-row md:items-end md:justify-between"
+          className="md:grid-cols-2 md:items-end md:gap-16"
+          ref={subRef}
         >
           {/* Description + CTA */}
-          <div ref={subRef} style={{ maxWidth: "440px", opacity: 0 }}>
+          <div style={{ maxWidth: "440px" }}>
             <p
               style={{
                 fontFamily: "var(--font-syne)",
@@ -183,8 +185,8 @@ export default function HeroSection() {
 
           {/* Stats */}
           <div
-            ref={statsRef}
-            style={{ display: "flex", gap: "48px", opacity: 0 }}
+            style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}
+            className="md:gap-12"
           >
             {[
               { value: "12+", label: "PROJECTS" },
