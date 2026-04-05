@@ -30,14 +30,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Arinda Putri Rahayu — UI/UX Designer",
+  title: "Rellen Sparingga — UI/UX Designer",
   description:
     "Portfolio UI/UX Designer — Fresh Graduate S1 Sistem Informasi. Merancang pengalaman digital yang bermakna dan berdampak.",
   keywords: ["UI/UX Designer", "Portfolio", "Figma", "Sistem Informasi", "Fresh Graduate"],
-  authors: [{ name: "Arinda Putri Rahayu" }],
+  authors: [{ name: "Rellen Sparingga" }],
   icons: { icon: "/favicon.svg" },
   openGraph: {
-    title: "Arinda Putri Rahayu — UI/UX Designer",
+    title: "Rellen Sparingga — UI/UX Designer",
     description: "Portfolio UI/UX Designer fresh graduate yang berfokus pada desain pengalaman digital.",
     type: "website",
   },

@@ -46,6 +46,8 @@ export default function MarqueeStrip() {
         paddingTop: "18px",
         paddingBottom: "18px",
         borderBottom: "1px solid var(--border-color)",
+        overflow: "hidden",
+        width: "100%",
       }}
     >
       <div ref={trackRef} className="marquee-track">

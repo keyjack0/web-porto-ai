@@ -71,8 +71,7 @@ portfolio/
 ## Kustomisasi
 
 ### Ganti Nama & Info
-Edit di masing-masing komponen — cari teks `"Arinda Putri Rahayu"` dan ganti dengan nama Anda.
-
+Edit di masing-masing komponen — cari teks `"Rellen Sparingga"` dan ganti dengan nama Anda.Jika kamu ingin, ganti juga kontak dan profile URL agar sesuai dengan Rellen Sparingga.
 ### Ganti Foto
 Di `AboutSection.tsx`, ganti SVG placeholder dengan tag `<Image>` dari Next.js:
 ```tsx

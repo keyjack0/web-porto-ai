@@ -62,7 +62,7 @@ export default function Footer() {
               opacity: 0,
             }}
           >
-            ARINDA.DEV
+            REREN.DEV
           </a>
 
          

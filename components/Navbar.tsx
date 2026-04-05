@@ -64,7 +64,7 @@ export default function Navbar() {
             textDecoration: "none",
           }}
         >
-          ARINDA.DEV
+          REREN.DEV
         </a>
 
         {/* Nav Links */}

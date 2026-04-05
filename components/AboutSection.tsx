@@ -118,7 +118,7 @@ export default function AboutSection() {
                 <line x1="0" y1="380" x2="440" y2="380" stroke="var(--muted)" strokeWidth="0.5" opacity="0.2" />
                 <line x1="220" y1="0" x2="220" y2="520" stroke="var(--muted)" strokeWidth="0.5" opacity="0.12" />
                 <rect x="20" y="20" width="400" height="480" fill="none" stroke="var(--muted)" strokeWidth="0.5" opacity="0.12" />
-                <text x="220" y="496" textAnchor="middle" fontFamily="monospace" fontSize="10" fill="var(--muted)" letterSpacing="4" opacity="0.6">ARINDA PUTRI RAHAYU</text>
+                <text x="220" y="496" textAnchor="middle" fontFamily="monospace" fontSize="10" fill="var(--muted)" letterSpacing="4" opacity="0.6">RELLEN SPARINGGA</text>
               </svg>
             </div>
 

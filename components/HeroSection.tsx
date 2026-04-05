@@ -129,11 +129,9 @@ export default function HeroSection() {
             opacity: 0,
           }}
         >
-          ARINDA
+          RELLEN
           <br />
-          <span className="text-ghost">PUTRI</span>
-          <br />
-          RAHAYU
+          <span className="text-ghost">SPARINGGA</span>
         </h1>
 
         {/* Bottom row */}
