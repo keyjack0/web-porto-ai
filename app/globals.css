@@ -30,7 +30,11 @@
 
 html {
   scroll-behavior: smooth;
+<<<<<<< HEAD
   overflow-x: hidden;
+=======
+   overflow-x: hidden;
+>>>>>>> 274fdc749c8ae4bb89698ad383e0f7fd8eb2e0b3
   width: 100%;
 }
 
