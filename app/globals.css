@@ -1,0 +1,361 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Variables / Theme ──────────────────────────────────────────────── */
+:root {
+  --bg: #ffffff;
+  --fg: #0a0a0a;
+  --muted: #6b6b6b;
+  --border-color: #e0e0e0;
+  --noise-opacity: 0.025;
+}
+
+[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --fg: #f5f5f0;
+  --muted: #888880;
+  --border-color: #1e1e1e;
+  --noise-opacity: 0.055;
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-syne), sans-serif;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ─── Noise Overlay ──────────────────────────────────────────────────────── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: var(--noise-opacity);
+  pointer-events: none;
+  z-index: 9990;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 2px;
+}
+
+/* ─── Custom Cursor ──────────────────────────────────────────────────────── */
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: var(--fg);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: background 0.3s;
+  will-change: transform;
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--fg);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  opacity: 0.45;
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease,
+    border-color 0.3s, background 0.3s;
+  will-change: transform;
+}
+
+.cursor-ring.hovering {
+  width: 60px;
+  height: 60px;
+  opacity: 0.18;
+  background: var(--fg);
+}
+
+/* ─── Typography Utilities ───────────────────────────────────────────────── */
+.font-bebas {
+  font-family: var(--font-bebas), cursive;
+  letter-spacing: 0.02em;
+}
+
+.float-label {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ─── Hover Underline ────────────────────────────────────────────────────── */
+.hover-underline {
+  position: relative;
+  display: inline-block;
+}
+.hover-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--fg);
+  transition: width 0.4s ease;
+}
+.hover-underline:hover::after {
+  width: 100%;
+}
+
+/* ─── Marquee ────────────────────────────────────────────────────────────── */
+.marquee-wrap {
+  overflow: hidden;
+}
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  will-change: transform;
+}
+.marquee-item {
+  padding: 0 2.5rem;
+  flex-shrink: 0;
+}
+
+/* ─── Loader ─────────────────────────────────────────────────────────────── */
+.loader-bar-wrap {
+  width: 200px;
+  height: 1px;
+  background: var(--border-color);
+  overflow: hidden;
+}
+.loader-bar {
+  height: 100%;
+  background: var(--fg);
+  width: 0;
+}
+
+/* ─── Project Card ───────────────────────────────────────────────────────── */
+.project-card {
+  border: 1px solid var(--border-color);
+  transition: border-color 0.5s;
+  overflow: hidden;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+/* ─── Skill Bar ──────────────────────────────────────────────────────────── */
+.skill-fill {
+  height: 2px;
+  background: var(--fg);
+  width: 0;
+  transition: background 0.5s;
+}
+
+/* ─── Tool Card ──────────────────────────────────────────────────────────── */
+.tool-card {
+  border: 1px solid var(--border-color);
+  transition: background 0.3s, border-color 0.5s;
+  cursor: none;
+}
+.tool-card:hover {
+  background: var(--fg);
+}
+.tool-card:hover .tool-label,
+.tool-card:hover .tool-name {
+  color: var(--bg) !important;
+}
+
+/* ─── Section Divider ────────────────────────────────────────────────────── */
+.section-border {
+  border-top: 1px solid var(--border-color);
+  transition: border-color 0.5s;
+}
+
+/* ─── Grid Lines ─────────────────────────────────────────────────────────── */
+.grid-line-v {
+  border-left: 1px solid var(--border-color);
+  transition: border-color 0.5s;
+}
+
+/* ─── Image Placeholder ──────────────────────────────────────────────────── */
+.img-placeholder {
+  background: var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.5s;
+  overflow: hidden;
+}
+
+/* ─── Theme Button ───────────────────────────────────────────────────────── */
+.theme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg);
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: none;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+.theme-btn:hover {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+}
+
+/* ─── Rotate Text ────────────────────────────────────────────────────────── */
+.rotate-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+/* ─── Scroll Indicator ───────────────────────────────────────────────────── */
+@keyframes scrollPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.15);
+  }
+}
+.scroll-line {
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+/* ─── Form ───────────────────────────────────────────────────────────────── */
+.form-input {
+  width: 100%;
+  padding: 12px 0;
+  background: transparent;
+  outline: none;
+  font-family: var(--font-syne), sans-serif;
+  font-size: 14px;
+  color: var(--fg);
+  caret-color: var(--fg);
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  transition: border-color 0.3s;
+}
+.form-input::placeholder {
+  color: var(--muted);
+  opacity: 0.5;
+}
+.form-input:focus {
+  border-bottom-color: var(--fg);
+}
+
+/* ─── Tag Pill ───────────────────────────────────────────────────────────── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: border-color 0.3s, color 0.3s;
+}
+.tag:hover {
+  border-color: var(--fg);
+  color: var(--fg);
+}
+
+/* ─── CTA Button ─────────────────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--fg);
+  color: var(--bg);
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: opacity 0.3s;
+  cursor: none;
+}
+.btn-primary:hover {
+  opacity: 0.85;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--border-color);
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+  cursor: none;
+}
+.btn-outline:hover {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+}
+
+/* ─── Ghost Heading ──────────────────────────────────────────────────────── */
+.text-ghost {
+  -webkit-text-stroke: 1px var(--muted);
+  color: transparent;
+}
+
+/* ─── Nav Link ───────────────────────────────────────────────────────────── */
+.nav-link {
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.3s;
+  cursor: none;
+}
+.nav-link:hover {
+  color: var(--fg);
+}
