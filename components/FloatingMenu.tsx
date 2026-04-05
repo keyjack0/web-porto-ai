@@ -13,8 +13,9 @@ const NAV_LINKS = [
 
 export default function FloatingMenu() {
   const [open, setOpen]     = useState(false);
-  const [isDark, setIsDark] = useState(true);
+  // const [isDark, setIsDark] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const overlayRef  = useRef<HTMLDivElement>(null);
   const menuRef     = useRef<HTMLDivElement>(null);
@@ -25,18 +26,18 @@ export default function FloatingMenu() {
   const line3Ref    = useRef<HTMLSpanElement>(null);
 
   /* ── sync theme state ─────────────────────────────── */
-  useEffect(() => {
-    const stored = localStorage.getItem("theme") ?? "dark";
-    setIsDark(stored === "dark");
+  // useEffect(() => {
+  //   const stored = localStorage.getItem("theme") ?? "dark";
+  //   setIsDark(stored === "dark");
 
-    // keep in sync if Navbar also changes theme
-    const obs = new MutationObserver(() => {
-      const t = document.documentElement.getAttribute("data-theme");
-      setIsDark(t === "dark");
-    });
-    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
-    return () => obs.disconnect();
-  }, []);
+  //   // keep in sync if Navbar also changes theme
+  //   const obs = new MutationObserver(() => {
+  //     const t = document.documentElement.getAttribute("data-theme");
+  //     setIsDark(t === "dark");
+  //   });
+  //   obs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  //   return () => obs.disconnect();
+  // }, []);
 
   /* ── detect mobile screen ──────────────────────────── */
   useEffect(() => {
@@ -46,8 +47,15 @@ export default function FloatingMenu() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  /* ── set mounted ──────────────────────────────────── */
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   /* ── open / close animation ───────────────────────── */
   useEffect(() => {
+    if (!mounted) return;
+
     const overlay = overlayRef.current;
     const menu    = menuRef.current;
     const items   = itemsRef.current?.children;
@@ -79,7 +87,9 @@ export default function FloatingMenu() {
       // Hide
       gsap.to(overlay, {
         opacity: 0, duration: 0.3, ease: "power2.in",
-        onComplete: () => gsap.set(overlay, { display: "none" }),
+        onComplete: () => {
+          gsap.set(overlay, { display: "none" });
+        },
       });
       gsap.to(menu, { y: "100%", opacity: 0, duration: 0.35, ease: "expo.in" });
       // X → Hamburger
@@ -87,7 +97,7 @@ export default function FloatingMenu() {
       gsap.to(l2, { opacity: 1, scaleX: 1, duration: 0.3, delay: 0.05 });
       gsap.to(l3, { rotation: 0, y: 0, duration: 0.35, ease: "expo.out" });
     }
-  }, [open]);
+  }, [open, mounted]);
 
   /* ── close on link click ──────────────────────────── */
   const handleLink = (href: string) => {
