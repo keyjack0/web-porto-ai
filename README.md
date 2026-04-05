@@ -1,4 +1,4 @@
-# Portfolio UI/UX Designer — Arinda Putri Rahayu
+# Portfolio UI/UX Designer 
 
 Website portofolio personal bergaya editorial brutalist dengan animasi GSAP, toggle siang/malam, dan desain hitam-putih yang bold.
 
