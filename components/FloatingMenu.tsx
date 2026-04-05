@@ -13,7 +13,6 @@ const NAV_LINKS = [
 
 export default function FloatingMenu() {
   const [open, setOpen]     = useState(false);
-  // const [isDark, setIsDark] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
 
