@@ -98,13 +98,13 @@ export default function FloatingMenu() {
   };
 
   /* ── toggle theme ─────────────────────────────────── */
-  const toggleTheme = () => {
-    const next = isDark ? "light" : "dark";
-    setIsDark(!isDark);
-    document.documentElement.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
-    gsap.fromTo("body", { opacity: 0.7 }, { opacity: 1, duration: 0.4, ease: "power2.out" });
-  };
+  // const toggleTheme = () => {
+  //   const next = isDark ? "light" : "dark";
+  //   setIsDark(!isDark);
+  //   document.documentElement.setAttribute("data-theme", next);
+  //   localStorage.setItem("theme", next);
+  //   gsap.fromTo("body", { opacity: 0.7 }, { opacity: 1, duration: 0.4, ease: "power2.out" });
+  // };
 
   return (
     <>
