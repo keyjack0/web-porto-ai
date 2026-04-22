@@ -7,10 +7,10 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const socials = [
-  { label: "EMAIL", value: "rellen.sparingga@email.com", href: "mailto:rellen.sparingga@email.com" },
-  { label: "LINKEDIN", value: "linkedin.com/in/rellensparingga", href: "https://linkedin.com" },
-  { label: "BEHANCE", value: "behance.net/rellensparingga", href: "https://behance.net" },
-  { label: "DRIBBBLE", value: "dribbble.com/rellensparingga", href: "https://dribbble.com" },
+  { label: "EMAIL", value: "dzaky.hamid@email.com", href: "mailto:dzaky.hamid@email.com" },
+  { label: "LINKEDIN", value: "linkedin.com/in/dzakyhamid", href: "https://linkedin.com" },
+  { label: "BEHANCE", value: "behance.net/dzakyhamid", href: "https://behance.net" },
+  { label: "DRIBBBLE", value: "dribbble.com/dzakyhamid", href: "https://dribbble.com" },
 ];
 
 export default function ContactSection() {

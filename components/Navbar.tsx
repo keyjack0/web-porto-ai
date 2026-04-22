@@ -64,7 +64,7 @@ export default function Navbar() {
             textDecoration: "none",
           }}
         >
-          REREN.DEV
+          JACK.DEV
         </a>
 
         {/* Nav Links */}

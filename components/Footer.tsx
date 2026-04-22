@@ -62,7 +62,7 @@ export default function Footer() {
               opacity: 0,
             }}
           >
-            REREN.DEV
+            JACK.DEV
           </a>
 
          

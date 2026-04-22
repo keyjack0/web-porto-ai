@@ -71,7 +71,7 @@ portfolio/
 ## Kustomisasi
 
 ### Ganti Nama & Info
-Edit di masing-masing komponen — cari teks `"Rellen Sparingga"` dan ganti dengan nama Anda.Jika kamu ingin, ganti juga kontak dan profile URL agar sesuai dengan Rellen Sparingga.
+Edit di masing-masing komponen — cari teks `"Dzaky Hamid"` dan ganti dengan nama Anda.Jika kamu ingin, ganti juga kontak dan profile URL agar sesuai dengan Dzaky Hamid.
 ### Ganti Foto
 Di `AboutSection.tsx`, ganti SVG placeholder dengan tag `<Image>` dari Next.js:
 ```tsx

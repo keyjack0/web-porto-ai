@@ -100,9 +100,9 @@ export default function HeroSection() {
           opacity: 0.6,
         }}
       >
-        <span className="float-label rotate-text">
+        {/* <span className="float-label rotate-text">
           UI/UX DESIGNER — FRESH GRADUATE 2024
-        </span>
+        </span> */}
       </div>
 
       <div style={{ maxWidth: "1280px", margin: "0 auto", width: "100%" }}>
@@ -129,9 +129,9 @@ export default function HeroSection() {
             opacity: 0,
           }}
         >
-          RELLEN
+          DZAKY
           <br />
-          <span className="text-ghost">SPARINGGA</span>
+          <span className="text-ghost">HAMID</span>
         </h1>
 
         {/* Bottom row */}
@@ -182,7 +182,7 @@ export default function HeroSection() {
           </div>
 
           {/* Stats */}
-          <div
+          {/* <div
             style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}
             className="md:gap-12"
           >
@@ -203,7 +203,7 @@ export default function HeroSection() {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
 

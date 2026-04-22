@@ -30,14 +30,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rellen Sparingga — UI/UX Designer",
+  title: "Dzaky Hamid — UI/UX Designer",
   description:
     "Portfolio UI/UX Designer — Fresh Graduate S1 Sistem Informasi. Merancang pengalaman digital yang bermakna dan berdampak.",
   keywords: ["UI/UX Designer", "Portfolio", "Figma", "Sistem Informasi", "Fresh Graduate"],
-  authors: [{ name: "Rellen Sparingga" }],
+  authors: [{ name: "Dzaky Hamid" }],
   icons: { icon: "/favicon.svg" },
   openGraph: {
-    title: "Rellen Sparingga — UI/UX Designer",
+    title: "Dzaky Hamid — UI/UX Designer",
     description: "Portfolio UI/UX Designer fresh graduate yang berfokus pada desain pengalaman digital.",
     type: "website",
   },
