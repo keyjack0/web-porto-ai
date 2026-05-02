@@ -61,7 +61,7 @@ export default function HeroSection() {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-end",
+        justifyContent: "center",
         paddingBottom: "80px",
         paddingLeft: "clamp(24px, 4vw, 48px)",
         paddingRight: "clamp(24px, 4vw, 48px)",
@@ -106,7 +106,7 @@ export default function HeroSection() {
     </h1>
 
     {/* Code Card — sejajar title */}
-    {/* <div
+    <div
       ref={codeCardRef}
       style={{
         opacity: 0,
@@ -118,9 +118,9 @@ export default function HeroSection() {
         flexShrink: 0,
         boxShadow: "0 32px 64px rgba(0,0,0,0.5)",
       }}
-    > */}
+    >
       {/* Title bar */}
-      {/* <div
+      <div
         style={{
           display: "flex",
           alignItems: "center",
@@ -129,23 +129,23 @@ export default function HeroSection() {
           background: "#0d0d0d",
           borderBottom: "1px solid rgba(255,255,255,0.07)",
         }}
-      > */}
-        {/* <div style={{ display: "flex", gap: "6px" }}>
+      >
+        <div style={{ display: "flex", gap: "6px" }}>
           {["#ff5f57", "#febc2e", "#28c840"].map((c) => (
             <div key={c} style={{ width: 10, height: 10, borderRadius: "50%", background: c }} />
           ))}
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: "6px", fontFamily: "var(--font-mono, monospace)", fontSize: "11px", color: "#555" }}>
-          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#28c840" }} />
+        <div style={{ display: "flex", alignItems: "center", gap: "6px", fontFamily: "var(--font-mono, monospace)", fontSize: "11px", color: "#fff", background: "rgba(224, 224, 224, 0.13)", padding: "3px 10px", borderRadius: "50px" }}>
+          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#ffffff" }} />
           Portfolio.ts
         </div>
-      </div> */}
+      </div>
 
       {/* Code body */}
-      {/* <div style={{ padding: "20px 18px" }}>
+      <div style={{ padding: "20px 18px" }}>
         {codeLines.map((line) => (
           <div key={line.num} style={{ display: "flex", gap: "14px", marginBottom: "5px" }}>
-            <span style={{ fontFamily: "monospace", fontSize: "11px", color: "#3a3a3a", minWidth: "16px", textAlign: "right", userSelect: "none" }}>
+            <span style={{ fontFamily: "monospace", fontSize: "11px", color: "#565656", minWidth: "16px", textAlign: "right", userSelect: "none" }}>
               {line.num}
             </span>
             <span style={{ fontFamily: "monospace", fontSize: "12px", lineHeight: "1.6" }}>
@@ -162,7 +162,7 @@ export default function HeroSection() {
           </div>
         ))}
       </div>
-    </div> */}
+    </div>
   </div>
 
   {/* Description + CTA — tetap di bawah sendiri */}

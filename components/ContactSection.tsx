@@ -3,14 +3,14 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const socials = [
-  { label: "EMAIL", value: "dzaky.hamid@email.com", href: "mailto:dzaky.hamid@email.com" },
-  { label: "LINKEDIN", value: "linkedin.com/in/dzakyhamid", href: "https://linkedin.com" },
-  { label: "BEHANCE", value: "behance.net/dzakyhamid", href: "https://behance.net" },
-  { label: "DRIBBBLE", value: "dribbble.com/dzakyhamid", href: "https://dribbble.com" },
+  { icon: FaEnvelope, href: "mailto:dzakyhamid9@gmail.com" },
+  { icon: FaLinkedin, href: "https://www.linkedin.com/in/dzaky-hamid/" },
+  { icon: FaGithub, href: "https://github.com/keyjack0" },
 ];
 
 export default function ContactSection() {
@@ -94,33 +94,39 @@ export default function ContactSection() {
             </p>
 
             {/* Social links */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-              {socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "20px",
-                    textDecoration: "none",
-                  }}
-                >
-                  <div className="float-label" style={{ minWidth: "72px" }}>
-                    {s.label}
-                  </div>
-                  <span
-                    className="hover-underline"
+            {/* Social links */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "20px",
+                marginBottom: "48px",
+              }}
+            >
+              {socials.map((s, i) => {
+                const Icon = s.icon;
+                return (
+                  <a
+                    key={i}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     style={{
-                      fontFamily: "var(--font-syne)",
-                      fontSize: "14px",
-                      color: "var(--fg)",
+                      fontSize: "20px",
+                      color: "var(--muted)",
+                      transition: "0.3s",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.color = "var(--fg)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.color = "var(--muted)";
                     }}
                   >
-                    {s.value}
-                  </span>
-                </a>
-              ))}
+                    <Icon />
+                  </a>
+                );
+              })}
             </div>
 
             {/* Availability badge */}
@@ -194,7 +200,7 @@ export default function ContactSection() {
                   </label>
                   <input
                     type="email"
-                    placeholder="email@anda.com"
+                    placeholder="dzakyhamid9@gmail.com"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     className="form-input"

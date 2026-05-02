@@ -9,24 +9,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 const timeline = [
   {
-    year: "2026",
-    title: "S1 Sistem Informasi — Universitas Sriwijaya",
-    desc: "IPK 3.87 — Tugas Akhir: Perancangan UI/UX Aplikasi Layanan Publik Berbasis Mobile.",
+    year: "2022 - 2026",
+    title: "S1 Sistem Informasi — Universitas AMIKOM Yogyakarta",
+    desc: "IPK 3.83"
   },
   {
-    year: "2023",
-    title: "Intern UI/UX Designer — Startup Lokal",
-    desc: "3 bulan. Redesign alur onboarding — konversi naik 40%. Membuat design system dari nol.",
-  },
-  {
-    year: "2022",
-    title: "UI/UX Lead — Himpunan Mahasiswa",
-    desc: "Memimpin tim desain untuk website & semua publikasi digital organisasi kampus.",
-  },
-  {
-    year: "2021",
-    title: "Google UX Design Certificate",
-    desc: "Professional certificate dari Google — foundation in UX research, wireframing, dan prototyping.",
+    year: "2025",
+    title: "Intern fullstack web developer — PT. Nazmalogy Loka Lastari",
+    desc: "3 bulan. berkolaborasi dalam tim untuk melakukan redesain dan implementasi fitur pada website internal menggunakan laravel.",
   },
 ];
 
@@ -188,10 +178,9 @@ export default function AboutSection() {
               marginBottom: "16px",
             }}
           >
-            Saya adalah UI/UX Designer fresh graduate dari Sistem Informasi yang
-            bersemangat menciptakan produk digital yang tidak hanya indah secara
-            visual, tetapi juga fungsional dan mudah digunakan.
+            Saya adalah Junior Fullstack Web Developer fresh graduate dari Sistem Informasi yang berfokus pada pengembangan aplikasi web yang fungsional, efisien, dan mudah digunakan.
           </p>
+
           <p
             style={{
               fontSize: "15px",
@@ -200,11 +189,8 @@ export default function AboutSection() {
               marginBottom: "40px",
             }}
           >
-            Dengan pemahaman mendalam tentang user behavior, information
-            architecture, dan design systems — saya percaya desain yang baik
-            dimulai dari empati terhadap pengguna.
+            Memiliki beberapa pengalaman dalam membangun aplikasi menggunakan teknologi seperti Next.js, Laravel, dan codeigniter, serta memahami alur sistem mulai dari frontend hingga backend — saya terus belajar untuk mengembangkan solusi digital yang optimal dan scalable.
           </p>
-
           {/* Timeline */}
           <div className="float-label" style={{ marginBottom: "24px" }}>
             PENDIDIKAN & PENGALAMAN
