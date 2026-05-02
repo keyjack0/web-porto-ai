@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -105,21 +106,21 @@ export default function AboutSection() {
           <div style={{ position: "relative" }}>
             <div
               ref={imgRef}
-              className="img-placeholder about-image"
+              className="img-placeholder about-image image-wrapper"
               style={{ clipPath: "inset(0 100% 0 0)" }}
             >
-              <svg width="100%" height="100%" viewBox="0 0 440 520" xmlns="http://www.w3.org/2000/svg">
-                <rect width="440" height="520" fill="var(--border-color)" />
-                {/* Abstract portrait */}
-                <ellipse cx="220" cy="180" rx="80" ry="88" fill="none" stroke="var(--muted)" strokeWidth="1.5" opacity="0.45" />
-                <ellipse cx="220" cy="175" rx="38" ry="42" fill="var(--muted)" opacity="0.12" />
-                <path d="M90 520 Q80 360 220 330 Q360 360 350 520" fill="none" stroke="var(--muted)" strokeWidth="1.5" opacity="0.4" />
-                {/* Decorative grid */}
-                <line x1="0" y1="380" x2="440" y2="380" stroke="var(--muted)" strokeWidth="0.5" opacity="0.2" />
-                <line x1="220" y1="0" x2="220" y2="520" stroke="var(--muted)" strokeWidth="0.5" opacity="0.12" />
-                <rect x="20" y="20" width="400" height="480" fill="none" stroke="var(--muted)" strokeWidth="0.5" opacity="0.12" />
-                <text x="220" y="496" textAnchor="middle" fontFamily="monospace" fontSize="10" fill="var(--muted)" letterSpacing="4" opacity="0.6">DZAKY HAMID</text>
-              </svg>
+              <Image
+                src="/profile.jpeg"
+                alt="Profile"
+                width={440}
+                height={520}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+                className="profile-image"
+              />
             </div>
 
             {/* Floating badge */}

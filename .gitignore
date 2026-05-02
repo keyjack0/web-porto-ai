@@ -98,3 +98,6 @@ public
 # Temporary folders
 tmp/
 temp/
+
+#for codex
+.codex

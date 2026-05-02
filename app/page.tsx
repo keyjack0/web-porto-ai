@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import dynamic from "next/dynamic";
-import Cursor from "@/components/Cursor";
+// import Cursor from "@/components/Cursor";
 import Loader from "@/components/Loader";
 
 // Dynamically import components that use GSAP
@@ -12,7 +12,7 @@ const HeroSection = dynamic(() => import("@/components/HeroSection"), { ssr: fal
 const MarqueeStrip = dynamic(() => import("@/components/MarqueeStrip"), { ssr: false });
 const WorkSection = dynamic(() => import("@/components/WorkSection"), { ssr: false });
 const AboutSection = dynamic(() => import("@/components/AboutSection"), { ssr: false });
-const SkillsSection = dynamic(() => import("@/components/SkillsSection"), { ssr: false });
+const SkillsSection = dynamic(() => import("@/components/SkillsSection"), { ssr: false }); 
 const ContactSection = dynamic(() => import("@/components/ContactSection"), { ssr: false });
 const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
 
@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <>
-      <Cursor />
+      {/* <Cursor /> */}
       <Loader />
       <Navbar />
       <FloatingMenu />
@@ -35,7 +35,7 @@ export default function Home() {
         <MarqueeStrip />
         <WorkSection />
         <AboutSection />
-        <SkillsSection />
+        {/* <SkillsSection /> */} {/* aktifkan jika ingin menampilkan bagian skills, pastikan juga untuk mengaktifkan bagian import dan refs yang di tandai --- IGNORE --- pada file components/SkillsSection.tsx */}
         <ContactSection />
       </main>
 

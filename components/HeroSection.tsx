@@ -7,48 +7,51 @@ export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const labelRef = useRef<HTMLDivElement>(null);
+  const codeCardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const run = () => {
       const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
 
-      tl.fromTo(
-        labelRef.current,
-        { opacity: 0, x: -20 },
-        { opacity: 1, x: 0, duration: 0.7 }
-      )
+      tl.fromTo(labelRef.current, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.7 })
+        .fromTo(titleRef.current, { opacity: 0, y: 80 }, { opacity: 1, y: 0, duration: 1.1 }, "-=0.3")
+        .fromTo(subRef.current, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8 }, "-=0.6")
         .fromTo(
-          titleRef.current,
-          { opacity: 0, y: 80 },
-          { opacity: 1, y: 0, duration: 1.1 },
-          "-=0.3"
+          codeCardRef.current,
+          { opacity: 0, x: 60, rotateY: -10 },
+          { opacity: 1, x: 0, rotateY: 0, duration: 1.0, ease: "expo.out" },
+          "-=0.8"
         )
-        .fromTo(
-          subRef.current,
-          { opacity: 0, y: 40 },
-          { opacity: 1, y: 0, duration: 0.8 },
-          "-=0.6"
-        )
-        .fromTo(
-          statsRef.current,
-          { opacity: 0, y: 40 },
-          { opacity: 1, y: 0, duration: 0.8 },
-          "-=0.6"
-        )
-        .fromTo(
-          scrollRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.5 },
-          "-=0.3"
-        );
+        .fromTo(scrollRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, "-=0.3");
     };
 
     window.addEventListener("loaderDone", run);
     return () => window.removeEventListener("loaderDone", run);
   }, []);
+
+  const codeLines = [
+    { num: "01", parts: [{ t: "kw", v: "const" }, { t: "sp" }, { t: "va", v: "vibecoder" }, { t: "sp" }, { t: "op", v: "=" }, { t: "sp" }, { t: "wh", v: "{" }] },
+    { num: "02", parts: [{ t: "ind" }, { t: "va", v: "name" }, { t: "op", v: ":" }, { t: "sp" }, { t: "st", v: "'Dzaky Hamid Al Aziz'" }, { t: "wh", v: "," }] },
+    { num: "03", parts: [{ t: "ind" }, { t: "va", v: "focus" }, { t: "op", v: ":" }, { t: "sp" }, { t: "st", v: "'junior web fullstack developer'" }, { t: "wh", v: "," }] },
+    { num: "04", parts: [{ t: "ind" }, { t: "va", v: "tools" }, { t: "op", v: ":" }, { t: "sp" }, { t: "wh", v: "[" }, { t: "st", v: "'Codeigniter'" }, { t: "wh", v: ", " }, { t: "st", v: "'Laravel'" }, { t: "wh", v: ", " }, { t: "st", v: "'Next.js'" }, { t: "wh", v: "]," }] },
+    { num: "05", parts: [{ t: "ind" }, { t: "va", v: "passionate" }, { t: "op", v: ":" }, { t: "sp" }, { t: "bo", v: "true" }, { t: "wh", v: "," }] },
+    { num: "06", parts: [{ t: "ind" }, { t: "va", v: "motto" }, { t: "op", v: ":" }, { t: "sp" }, { t: "st", v: '"Build with Passion"' }] },
+    { num: "07", parts: [{ t: "wh", v: "};" }] },
+    { num: "08", parts: [{ t: "va", v: "vibecoder" }, { t: "op", v: "." }, { t: "va", v: "show" }, { t: "wh", v: "();" }] },
+  ];
+
+  const colorMap: Record<string, string> = {
+    kw: "#c792ea",
+    va: "#82aaff",
+    op: "#89ddff",
+    st: "#c3e88d",
+    bo: "#f78c6c",
+    wh: "#e0e0e0",
+    sp: "#e0e0e0",
+    ind: "#e0e0e0",
+  };
 
   return (
     <section
@@ -67,167 +70,127 @@ export default function HeroSection() {
         overflow: "hidden",
       }}
     >
-      {/* Decorative vertical grid lines */}
-      <div
-        className="grid-line-v"
-        style={{
-          position: "absolute",
-          top: 0,
-          right: "clamp(24px, 4vw, 48px)",
-          height: "100%",
-          opacity: 0.25,
-        }}
-      />
-      <div
-        className="grid-line-v hidden md:block"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: "33.333%",
-          height: "100%",
-          opacity: 0.08,
-        }}
-      />
-
-      {/* Rotating side label */}
-      <div
-        className="hidden md:flex items-center"
-        style={{
-          position: "absolute",
-          top: "128px",
-          right: "clamp(24px, 4vw, 48px)",
-          gap: "12px",
-          opacity: 0.6,
-        }}
-      >
-        {/* <span className="float-label rotate-text">
-          UI/UX DESIGNER — FRESH GRADUATE 2024
-        </span> */}
-      </div>
-
       <div style={{ maxWidth: "1280px", margin: "0 auto", width: "100%" }}>
-        {/* Section index */}
-        <div
-          ref={labelRef}
-          className="flex items-center"
-          style={{ gap: "12px", marginBottom: "32px", opacity: 0 }}
-        >
-          <div style={{ width: "24px", height: "1px", background: "var(--muted)" }} />
-          <span className="float-label">001 — INTRODUCTION</span>
-        </div>
+  {/* Label */}
+  <div ref={labelRef} className="flex items-center" style={{ gap: "12px", marginBottom: "32px", opacity: 0 }}>
+    <div style={{ width: "24px", height: "1px", background: "var(--muted)" }} />
+    <span className="float-label">001 — INTRODUCTION</span>
+  </div>
 
-        {/* Main title */}
-        <h1
-          ref={titleRef}
-          className="font-bebas"
-          style={{
-            fontSize: "clamp(72px, 13vw, 200px)",
-            lineHeight: "0.87",
-            letterSpacing: "-0.01em",
-            color: "var(--fg)",
-            marginBottom: "40px",
-            opacity: 0,
-          }}
-        >
-          DZAKY
-          <br />
-          <span className="text-ghost">HAMID</span>
-        </h1>
+  {/* Title + Code Card row */}
+  <div
+    style={{
+      display: "grid",
+      gridTemplateColumns: "1fr auto",
+      gap: "40px",
+      marginBottom: "40px",
+      opacity: 0,
+    }}
+    className="md:grid-cols-[1fr_auto] md:items-center"
+    ref={titleRef}
+  >
+    {/* Title */}
+    <h1
+      className="font-bebas"
+      style={{
+        fontSize: "clamp(72px, 13vw, 200px)",
+        lineHeight: "0.87",
+        letterSpacing: "-0.01em",
+        color: "var(--fg)",
+        margin: 0,
+      }}
+    >
+      DZAKY
+      <br />
+      <span className="text-ghost">HAMID</span>
+    </h1>
 
-        {/* Bottom row */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: "32px",
-            opacity: 0,
-          }}
-          className="md:grid-cols-2 md:items-end md:gap-16"
-          ref={subRef}
-        >
-          {/* Description + CTA */}
-          <div style={{ maxWidth: "440px" }}>
-            <p
-              style={{
-                fontFamily: "var(--font-syne)",
-                fontSize: "15px",
-                lineHeight: "1.8",
-                color: "var(--muted)",
-                marginBottom: "28px",
-              }}
-            >
-              Fresh graduate S1 Sistem Informasi yang berfokus pada UI/UX
-              Design. Merancang pengalaman digital yang bermakna, intuitif, dan
-              berdampak bagi pengguna.
-            </p>
-            <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-              <a href="#work" className="btn-primary">
-                LIHAT KARYA
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
-              </a>
-              <a href="#contact" className="btn-outline">
-                HUBUNGI SAYA
-              </a>
-            </div>
-          </div>
-
-          {/* Stats */}
-          {/* <div
-            style={{ display: "flex", flexWrap: "wrap", gap: "16px" }}
-            className="md:gap-12"
-          >
-            {[
-              { value: "12+", label: "PROJECTS" },
-              { value: "3+", label: "TOOLS" },
-              { value: "3.87", label: "IPK" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <div
-                  className="font-bebas"
-                  style={{ fontSize: "52px", color: "var(--fg)", lineHeight: 1 }}
-                >
-                  {stat.value}
-                </div>
-                <div className="float-label" style={{ marginTop: "4px" }}>
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div> */}
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div
-        ref={scrollRef}
+    {/* Code Card — sejajar title */}
+    {/* <div
+      ref={codeCardRef}
+      style={{
+        opacity: 0,
+        background: "#111111",
+        border: "1px solid rgba(255,255,255,0.1)",
+        borderRadius: "10px",
+        overflow: "hidden",
+        width: "520px",
+        flexShrink: 0,
+        boxShadow: "0 32px 64px rgba(0,0,0,0.5)",
+      }}
+    > */}
+      {/* Title bar */}
+      {/* <div
         style={{
-          position: "absolute",
-          bottom: "32px",
-          left: "50%",
-          transform: "translateX(-50%)",
           display: "flex",
-          flexDirection: "column",
           alignItems: "center",
-          gap: "8px",
-          opacity: 0,
+          justifyContent: "space-between",
+          padding: "10px 16px",
+          background: "#0d0d0d",
+          borderBottom: "1px solid rgba(255,255,255,0.07)",
         }}
-      >
-        <span className="float-label">SCROLL</span>
-        <div
-          className="scroll-line"
-          style={{ width: "1px", height: "48px", background: "var(--muted)" }}
-        />
+      > */}
+        {/* <div style={{ display: "flex", gap: "6px" }}>
+          {["#ff5f57", "#febc2e", "#28c840"].map((c) => (
+            <div key={c} style={{ width: 10, height: 10, borderRadius: "50%", background: c }} />
+          ))}
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: "6px", fontFamily: "var(--font-mono, monospace)", fontSize: "11px", color: "#555" }}>
+          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#28c840" }} />
+          Portfolio.ts
+        </div>
+      </div> */}
+
+      {/* Code body */}
+      {/* <div style={{ padding: "20px 18px" }}>
+        {codeLines.map((line) => (
+          <div key={line.num} style={{ display: "flex", gap: "14px", marginBottom: "5px" }}>
+            <span style={{ fontFamily: "monospace", fontSize: "11px", color: "#3a3a3a", minWidth: "16px", textAlign: "right", userSelect: "none" }}>
+              {line.num}
+            </span>
+            <span style={{ fontFamily: "monospace", fontSize: "12px", lineHeight: "1.6" }}>
+              {line.parts.map((p, i) =>
+                p.t === "ind" ? (
+                  <span key={i}>&nbsp;&nbsp;</span>
+                ) : p.t === "sp" ? (
+                  <span key={i}>&nbsp;</span>
+                ) : (
+                  <span key={i} style={{ color: colorMap[p.t] ?? "#e0e0e0" }}>{p.v}</span>
+                )
+              )}
+            </span>
+          </div>
+        ))}
       </div>
-    </section>
+    </div> */}
+  </div>
+
+  {/* Description + CTA — tetap di bawah sendiri */}
+  <div ref={subRef} style={{ opacity: 0, maxWidth: "440px" }}>
+    <p style={{ fontFamily: "var(--font-syne)", fontSize: "15px", lineHeight: "1.8", color: "var(--muted)", marginBottom: "28px" }}>
+      Fresh graduate S1 Sistem Informasi yang berfokus pada UI/UX Design. Merancang pengalaman digital yang bermakna, intuitif, dan berdampak bagi pengguna.
+    </p>
+    <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+      <a href="#work" className="btn-primary">
+        LIHAT KARYA
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </a>
+      <a href="#contact" className="btn-outline">HUBUNGI SAYA</a>
+    </div>
+  </div>
+</div>
+
+      {/* Scroll indicator */ }
+  <div
+    ref={scrollRef}
+    style={{ position: "absolute", bottom: "32px", left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: "8px", opacity: 0 }}
+  >
+    <span className="float-label">SCROLL</span>
+    <div className="scroll-line" style={{ width: "1px", height: "48px", background: "var(--muted)" }} />
+  </div>
+    </section >
   );
 }

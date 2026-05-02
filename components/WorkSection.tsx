@@ -1,38 +1,12 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Link from "next/link";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { projects } from "@/lib/projects";
 
 gsap.registerPlugin(ScrollTrigger);
-
-/* ── Data ───────────────────────────────────────────────────────────── */
-const projects = [
-  {
-    id: "01",
-    category: "MOBILE APP",
-    title: "SIAKAD Redesign — Universitas",
-    description:
-      "Redesign sistem informasi akademik kampus dengan pendekatan user-centered design. Task completion rate naik 67%, error rate turun 45%.",
-    tags: ["FIGMA", "USER RESEARCH", "PROTOTYPING"],
-  },
-  {
-    id: "02",
-    category: "DASHBOARD",
-    title: "E-Commerce Admin Panel",
-    description:
-      "Dashboard analytics untuk platform e-commerce lokal dengan visualisasi data real-time dan komponen yang reusable.",
-    tags: ["FIGMA", "DATA VIZ"],
-  },
-  {
-    id: "03",
-    category: "BRANDING",
-    title: "Startup Fintech Brand",
-    description:
-      "Brand identity & UI kit untuk startup fintech berfokus pada pembayaran digital.",
-    tags: ["ADOBE XD", "BRANDING"],
-  },
-];
 
 /* ── SVG Placeholders ───────────────────────────────────────────────── */
 function SvgSiakad() {
@@ -164,11 +138,11 @@ function ProjectCard({ project, imgHeight, children }: CardProps) {
               {project.title}
             </h3>
           </div>
-          <a href="#"
+          <Link href={`/project/${project.slug}`}
             style={{ width: "38px", height: "38px", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid var(--border-color)", color: "var(--fg)", textDecoration: "none", fontSize: "14px", flexShrink: 0, transition: "background 0.3s, color 0.3s" }}
             onMouseEnter={e => hoverLink(e.currentTarget as HTMLElement, true)}
             onMouseLeave={e => hoverLink(e.currentTarget as HTMLElement, false)}
-          >↗</a>
+          >↗</Link>
         </div>
         <p style={{ fontSize: "13px", lineHeight: "1.75", color: "var(--muted)", marginBottom: "14px" }}>{project.description}</p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
@@ -210,9 +184,9 @@ function WideCard() {
             <span key={t} className="tag">{t}</span>
           ))}
         </div>
-        <a href="#" className="float-label hover-underline" style={{ color: "var(--fg)", textDecoration: "none" }}>
+        <Link href="/project/sehatku-mobile-app" className="float-label hover-underline" style={{ color: "var(--fg)", textDecoration: "none" }}>
           LIHAT CASE STUDY →
-        </a>
+        </Link>
       </div>
     </div>
   );
@@ -244,7 +218,7 @@ export default function WorkSection() {
               KARYA<br /><span className="text-ghost">PILIHAN</span>
             </h2>
           </div>
-          <a href="#" className="float-label hover-underline" style={{ color: "var(--muted)", textDecoration: "none" }}>SEMUA KARYA →</a>
+          <Link href="/works" className="float-label hover-underline" style={{ color: "var(--muted)", textDecoration: "none" }}>SEMUA KARYA →</Link>
         </div>
 
         {/* Row 1 */}

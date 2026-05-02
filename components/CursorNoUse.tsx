@@ -1,3 +1,8 @@
+// ubah file ini menjadi Cursor.tsx jika ingin di gunakan dan aktifkan bagian app/page.tsx untuk mengaktifkan cursor 
+// Note: Cursor ini hanya untuk desktop, otomatis tidak muncul di mobile
+// Jika ingin menyesuaikan ukuran ring saat hover, tambahkan CSS berikut ke globals.css:
+// ubah menjadi cursor: none; jika ingin menghilangkan cursor default saat menggunakan custom cursor pada file globals.css
+
 "use client";
 
 import { useEffect, useRef, useState } from "react";
