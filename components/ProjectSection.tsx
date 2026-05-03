@@ -2,76 +2,31 @@
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { projects } from "@/lib/projects";
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* ── SVG Placeholders ───────────────────────────────────────────────── */
-function SvgSiakad() {
+function ProjectVisual({ src, alt, label }: { src: string; alt: string; label: string }) {
   return (
-    <svg width="100%" height="100%" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
-      <rect width="600" height="400" fill="var(--border-color)" />
-      <rect x="40" y="40" width="200" height="140" rx="12" fill="none" stroke="var(--muted)" strokeWidth="1.5" opacity="0.5" />
-      <rect x="58" y="58" width="164" height="80" rx="8" fill="var(--muted)" opacity="0.1" />
-      <rect x="260" y="40" width="300" height="54" rx="8" fill="none" stroke="var(--muted)" strokeWidth="1" opacity="0.4" />
-      <rect x="260" y="112" width="220" height="10" rx="5" fill="var(--muted)" opacity="0.3" />
-      <rect x="260" y="130" width="170" height="9" rx="4" fill="var(--muted)" opacity="0.18" />
-      <rect x="40" y="205" width="520" height="1" fill="var(--muted)" opacity="0.2" />
-      <circle cx="68" cy="258" r="22" fill="none" stroke="var(--muted)" strokeWidth="1.5" opacity="0.4" />
-      <rect x="106" y="248" width="150" height="9" rx="4" fill="var(--muted)" opacity="0.28" />
-      <rect x="106" y="265" width="108" height="7" rx="3" fill="var(--muted)" opacity="0.16" />
-      <rect x="360" y="244" width="88" height="32" rx="16" fill="none" stroke="var(--fg)" strokeWidth="1.5" opacity="0.3" />
-      <rect x="462" y="244" width="88" height="32" rx="16" fill="var(--fg)" opacity="0.1" />
-      <text x="300" y="382" textAnchor="middle" fontFamily="monospace" fontSize="10" fill="var(--muted)" letterSpacing="4" opacity="0.6">MOBILE APP — SIAKAD REDESIGN</text>
-    </svg>
-  );
-}
-
-function SvgDashboard() {
-  return (
-    <svg width="100%" height="100%" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="200" fill="var(--border-color)" />
-      <rect x="20" y="20" width="360" height="30" rx="6" fill="none" stroke="var(--muted)" strokeWidth="1" opacity="0.35" />
-      <rect x="20" y="66" width="170" height="90" rx="8" fill="none" stroke="var(--muted)" strokeWidth="1" opacity="0.3" />
-      <rect x="30" y="76" width="150" height="50" rx="4" fill="var(--muted)" opacity="0.1" />
-      <rect x="210" y="66" width="170" height="90" rx="8" fill="none" stroke="var(--muted)" strokeWidth="1" opacity="0.3" />
-      <rect x="220" y="76" width="150" height="50" rx="4" fill="var(--muted)" opacity="0.1" />
-      <text x="200" y="183" textAnchor="middle" fontFamily="monospace" fontSize="9" fill="var(--muted)" letterSpacing="3" opacity="0.6">DASHBOARD ANALYTICS</text>
-    </svg>
-  );
-}
-
-function SvgBrand() {
-  return (
-    <svg width="100%" height="100%" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-      <rect width="400" height="200" fill="var(--border-color)" />
-      <circle cx="200" cy="90" r="55" fill="none" stroke="var(--muted)" strokeWidth="1.5" opacity="0.38" />
-      <circle cx="200" cy="90" r="38" fill="none" stroke="var(--muted)" strokeWidth="1" opacity="0.22" />
-      <circle cx="200" cy="90" r="20" fill="var(--muted)" opacity="0.12" />
-      <line x1="118" y1="90" x2="282" y2="90" stroke="var(--muted)" strokeWidth="0.5" opacity="0.2" />
-      <line x1="200" y1="35" x2="200" y2="145" stroke="var(--muted)" strokeWidth="0.5" opacity="0.2" />
-      <text x="200" y="172" textAnchor="middle" fontFamily="monospace" fontSize="9" fill="var(--muted)" letterSpacing="3" opacity="0.6">BRAND IDENTITY</text>
-    </svg>
-  );
-}
-
-function SvgSehatku() {
-  return (
-    <svg width="100%" height="100%" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
-      <rect width="500" height="300" fill="var(--border-color)" />
-      <rect x="30" y="28" width="130" height="228" rx="20" fill="none" stroke="var(--muted)" strokeWidth="1.5" opacity="0.38" />
-      <rect x="44" y="50" width="102" height="68" rx="8" fill="var(--muted)" opacity="0.12" />
-      <rect x="44" y="130" width="78" height="8" rx="4" fill="var(--muted)" opacity="0.28" />
-      <rect x="44" y="146" width="56" height="7" rx="3" fill="var(--muted)" opacity="0.16" />
-      <rect x="44" y="198" width="102" height="30" rx="15" fill="var(--fg)" opacity="0.12" />
-      <rect x="190" y="28" width="130" height="228" rx="20" fill="none" stroke="var(--fg)" strokeWidth="2" opacity="0.3" />
-      <rect x="204" y="50" width="102" height="68" rx="8" fill="var(--muted)" opacity="0.16" />
-      <rect x="204" y="130" width="78" height="8" rx="4" fill="var(--muted)" opacity="0.32" />
-      <rect x="355" y="62" width="110" height="170" rx="20" fill="none" stroke="var(--muted)" strokeWidth="1" opacity="0.22" />
-      <text x="250" y="287" textAnchor="middle" fontFamily="monospace" fontSize="10" fill="var(--muted)" letterSpacing="3" opacity="0.6">MOBILE UX — HEALTH APP</text>
-    </svg>
+    <div style={{ position: "relative", width: "100%", height: "100%" }}>
+      <Image src={src} alt={alt} fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: "cover" }} />
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "linear-gradient(to top, rgba(0,0,0,0.35), rgba(0,0,0,0.05) 45%, rgba(0,0,0,0))",
+        }}
+      />
+      <p
+        className="float-label"
+        style={{ position: "absolute", left: "14px", bottom: "12px", margin: 0, color: "#fff", letterSpacing: "0.08em" }}
+      >
+        {label}
+      </p>
+    </div>
   );
 }
 
@@ -79,10 +34,9 @@ function SvgSehatku() {
 interface CardProps {
   project: (typeof projects)[0];
   imgHeight: number;
-  children: React.ReactNode; // SVG
 }
 
-function ProjectCard({ project, imgHeight, children }: CardProps) {
+function ProjectCard({ project, imgHeight }: CardProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -128,7 +82,7 @@ function ProjectCard({ project, imgHeight, children }: CardProps) {
   return (
     <div ref={ref} className="project-card" style={{ opacity: 0 }}>
       <div className="img-placeholder" style={{ height: imgHeight }}>
-        {children}
+        <ProjectVisual src={project.image} alt={project.imageAlt} label={project.previewLabel} />
       </div>
       <div style={{ padding: "24px" }}>
         <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "10px" }}>
@@ -155,6 +109,7 @@ function ProjectCard({ project, imgHeight, children }: CardProps) {
 
 /* ── Wide Card ──────────────────────────────────────────────────────── */
 function WideCard() {
+  const project = projects[3];
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -169,22 +124,22 @@ function WideCard() {
   return (
     <div ref={ref} className="project-card wide-card" style={{ opacity: 0 }}>
       <div className="img-placeholder" style={{ minHeight: "300px" }}>
-        <SvgSehatku />
+        <ProjectVisual src={project.image} alt={project.imageAlt} label={project.previewLabel} />
       </div>
       <div style={{ padding: "48px 40px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-        <div className="float-label" style={{ marginBottom: "12px" }}>04 — HEALTH TECH</div>
+        <div className="float-label" style={{ marginBottom: "12px" }}>{project.id} — {project.category}</div>
         <h3 className="font-bebas" style={{ fontSize: "clamp(36px, 4vw, 58px)", color: "var(--fg)", lineHeight: "0.9", marginBottom: "20px", letterSpacing: "0.02em" }}>
-          SEHATKU<br />MOBILE APP
+          {project.title.split(" ").slice(0, 2).join(" ")}<br />{project.title.split(" ").slice(2).join(" ")}
         </h3>
         <p style={{ fontSize: "13px", lineHeight: "1.75", color: "var(--muted)", marginBottom: "24px" }}>
-          Aplikasi kesehatan personal untuk pemantauan kondisi tubuh sehari-hari. Penelitian UX intensif 3 bulan dengan 40 responden — engagement naik 85%.
+          {project.description}
         </p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginBottom: "28px" }}>
-          {["FIGMA", "USER TESTING", "INFORMATION ARCH", "MOBILE FIRST"].map(t => (
+          {project.tags.map(t => (
             <span key={t} className="tag">{t}</span>
           ))}
         </div>
-        <Link href="/project/sehatku-mobile-app" className="float-label hover-underline" style={{ color: "var(--fg)", textDecoration: "none" }}>
+        <Link href={`/project/${project.slug}`} className="float-label hover-underline" style={{ color: "var(--fg)", textDecoration: "none" }}>
           LIHAT CASE STUDY →
         </Link>
       </div>
@@ -193,7 +148,7 @@ function WideCard() {
 }
 
 /* ── Section ────────────────────────────────────────────────────────── */
-export default function WorkSection() {
+export default function ProjectSection() {
   const headRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -204,7 +159,7 @@ export default function WorkSection() {
   }, []);
 
   return (
-    <section id="work" className="section-border" style={{ padding: "96px clamp(24px, 4vw, 48px)" }}>
+    <section id="project" className="section-border" style={{ padding: "96px clamp(24px, 4vw, 48px)" }}>
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
 
         {/* Heading */}
@@ -212,18 +167,18 @@ export default function WorkSection() {
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
               <div style={{ width: "24px", height: "1px", background: "var(--muted)" }} />
-              <span className="float-label">002 — SELECTED WORK</span>
+              <span className="float-label">002 — SELECTED PROJECT</span>
             </div>
             <h2 className="font-bebas" style={{ fontSize: "clamp(52px, 9vw, 120px)", lineHeight: "0.87", letterSpacing: "-0.02em", color: "var(--fg)" }}>
               KARYA<br /><span className="text-ghost">PILIHAN</span>
             </h2>
           </div>
-          <Link href="/works" className="float-label hover-underline" style={{ color: "var(--muted)", textDecoration: "none" }}>SEMUA KARYA →</Link>
+          <Link href="/projects" className="float-label hover-underline" style={{ color: "var(--muted)", textDecoration: "none" }}>SEMUA KARYA →</Link>
         </div>
 
         {/* Row 1 */}
         <div 
-          className="responsive-grid work-grid" 
+          className="responsive-grid project-grid" 
           style={{ 
             display: "grid",
             gridTemplateColumns: "1fr",
@@ -233,15 +188,15 @@ export default function WorkSection() {
         >
           <style>{`
             @media (min-width: 768px) {
-              .work-grid {
+              .project-grid {
                 grid-template-columns: 6fr 5fr !important;
               }
             }
           `}</style>
-          <ProjectCard project={projects[0]} imgHeight={400}><SvgSiakad /></ProjectCard>
+          <ProjectCard project={projects[0]} imgHeight={400} />
           <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-            <ProjectCard project={projects[1]} imgHeight={185}><SvgDashboard /></ProjectCard>
-            <ProjectCard project={projects[2]} imgHeight={185}><SvgBrand /></ProjectCard>
+            <ProjectCard project={projects[1]} imgHeight={185} />
+            <ProjectCard project={projects[2]} imgHeight={185} />
           </div>
         </div>
 

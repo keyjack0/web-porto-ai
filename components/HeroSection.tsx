@@ -71,126 +71,166 @@ export default function HeroSection() {
       }}
     >
       <div style={{ maxWidth: "1280px", margin: "0 auto", width: "100%" }}>
-  {/* Label */}
-  <div ref={labelRef} className="flex items-center" style={{ gap: "12px", marginBottom: "32px", opacity: 0 }}>
-    <div style={{ width: "24px", height: "1px", background: "var(--muted)" }} />
-    <span className="float-label">001 — INTRODUCTION</span>
-  </div>
+        {/* Label */}
+        <div ref={labelRef} className="flex items-center" style={{ gap: "12px", marginBottom: "20px", opacity: 0 }}>
+          <div style={{ width: "24px", height: "1px", background: "var(--muted)" }} />
+          <span className="float-label">001 — INTRODUCTION</span>
+        </div>
 
-  {/* Title + Code Card row */}
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: "1fr auto",
-      gap: "40px",
-      marginBottom: "40px",
-      opacity: 0,
-    }}
-    className="md:grid-cols-[1fr_auto] md:items-center"
-    ref={titleRef}
-  >
-    {/* Title */}
-    <h1
-      className="font-bebas"
-      style={{
-        fontSize: "clamp(72px, 13vw, 200px)",
-        lineHeight: "0.87",
-        letterSpacing: "-0.01em",
-        color: "var(--fg)",
-        margin: 0,
-      }}
-    >
-      DZAKY
-      <br />
-      <span className="text-ghost">HAMID</span>
-    </h1>
+        {/* Title + Code Card row */}
+        {/* PERBAIKAN: hapus gridTemplateColumns dari inline style, serahkan ke Tailwind */}
+        <div
+          ref={titleRef}
+          className="grid grid-cols-1 md:grid-cols-[1fr_auto] md:items-center"
+          style={{
+            gap: "40px",
+            marginBottom: "20px",
+            opacity: 0,
+          }}
+        >
+          {/* Title */}
+          <h1
+            className="font-bebas"
+            style={{
+              fontSize: "clamp(72px, 13vw, 200px)",
+              lineHeight: "0.87",
+              letterSpacing: "-0.01em",
+              color: "var(--fg)",
+              margin: 0,
+            }}
+          >
+            DZAKY
+            <span className="text-ghost"> HAMID</span>
+          </h1>
 
-    {/* Code Card — sejajar title */}
-    <div
-      ref={codeCardRef}
-      style={{
-        opacity: 0,
-        background: "#111111",
-        border: "1px solid rgba(255,255,255,0.1)",
-        borderRadius: "10px",
-        overflow: "hidden",
-        width: "520px",
-        flexShrink: 0,
-        boxShadow: "0 32px 64px rgba(0,0,0,0.5)",
-      }}
-    >
-      {/* Title bar */}
+          {/* Code Card */}
+          {/* PERBAIKAN: hapus width dari inline style, serahkan ke Tailwind */}
+          <div
+            ref={codeCardRef}
+            className="w-full md:w-[520px]"
+            style={{
+              opacity: 0,
+              background: "#111111",
+              border: "1px solid rgba(255,255,255,0.1)",
+              borderRadius: "10px",
+              overflow: "hidden",
+              flexShrink: 0,
+              boxShadow: "0 32px 64px rgba(0,0,0,0.5)",
+            }}
+          >
+            {/* Title bar */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: "10px 16px",
+                background: "#0d0d0d",
+                borderBottom: "1px solid rgba(255,255,255,0.07)",
+              }}
+            >
+              <div style={{ display: "flex", gap: "6px" }}>
+                {["#ff5f57", "#febc2e", "#28c840"].map((c) => (
+                  <div key={c} style={{ width: 10, height: 10, borderRadius: "50%", background: c }} />
+                ))}
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  fontFamily: "var(--font-mono, monospace)",
+                  fontSize: "11px",
+                  color: "#fff",
+                  background: "rgba(224, 224, 224, 0.13)",
+                  padding: "3px 10px",
+                  borderRadius: "50px",
+                }}
+              >
+                <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#ffffff" }} />
+                Portfolio.ts
+              </div>
+            </div>
+
+            {/* Code body */}
+            <div style={{ padding: "20px 18px" }}>
+              {codeLines.map((line) => (
+                <div key={line.num} style={{ display: "flex", gap: "14px", marginBottom: "5px" }}>
+                  <span
+                    style={{
+                      fontFamily: "monospace",
+                      fontSize: "11px",
+                      color: "#565656",
+                      minWidth: "16px",
+                      textAlign: "right",
+                      userSelect: "none",
+                    }}
+                  >
+                    {line.num}
+                  </span>
+                  <span style={{ fontFamily: "monospace", fontSize: "12px", lineHeight: "1.6" }}>
+                    {line.parts.map((p, i) =>
+                      p.t === "ind" ? (
+                        <span key={i}>&nbsp;&nbsp;</span>
+                      ) : p.t === "sp" ? (
+                        <span key={i}>&nbsp;</span>
+                      ) : (
+                        <span key={i} style={{ color: colorMap[p.t] ?? "#e0e0e0" }}>
+                          {p.v}
+                        </span>
+                      )
+                    )}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Description + CTA */}
+        <div ref={subRef} style={{ opacity: 0, maxWidth: "440px" }}>
+          <p
+            style={{
+              fontFamily: "var(--font-syne)",
+              fontSize: "15px",
+              lineHeight: "1.8",
+              color: "var(--muted)",
+              marginBottom: "28px",
+            }}
+          >
+            junior web fullstack developer yang memiliki passion untuk menciptakan digitalsisasi yang berdampak positif bagi masyarakat
+          </p>
+          <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+            <a href="#project" className="btn-primary">
+              LIHAT KARYA
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+            <a href="#contact" className="btn-outline">HUBUNGI SAYA</a>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
       <div
+        ref={scrollRef}
         style={{
+          position: "absolute",
+          bottom: "32px",
+          left: "50%",
+          transform: "translateX(-50%)",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
-          justifyContent: "space-between",
-          padding: "10px 16px",
-          background: "#0d0d0d",
-          borderBottom: "1px solid rgba(255,255,255,0.07)",
+          gap: "8px",
+          opacity: 0,
         }}
       >
-        <div style={{ display: "flex", gap: "6px" }}>
-          {["#ff5f57", "#febc2e", "#28c840"].map((c) => (
-            <div key={c} style={{ width: 10, height: 10, borderRadius: "50%", background: c }} />
-          ))}
-        </div>
-        <div style={{ display: "flex", alignItems: "center", gap: "6px", fontFamily: "var(--font-mono, monospace)", fontSize: "11px", color: "#fff", background: "rgba(224, 224, 224, 0.13)", padding: "3px 10px", borderRadius: "50px" }}>
-          <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#ffffff" }} />
-          Portfolio.ts
-        </div>
+        <span className="float-label">SCROLL</span>
+        <div className="scroll-line" style={{ width: "1px", height: "48px", background: "var(--muted)" }} />
       </div>
-
-      {/* Code body */}
-      <div style={{ padding: "20px 18px" }}>
-        {codeLines.map((line) => (
-          <div key={line.num} style={{ display: "flex", gap: "14px", marginBottom: "5px" }}>
-            <span style={{ fontFamily: "monospace", fontSize: "11px", color: "#565656", minWidth: "16px", textAlign: "right", userSelect: "none" }}>
-              {line.num}
-            </span>
-            <span style={{ fontFamily: "monospace", fontSize: "12px", lineHeight: "1.6" }}>
-              {line.parts.map((p, i) =>
-                p.t === "ind" ? (
-                  <span key={i}>&nbsp;&nbsp;</span>
-                ) : p.t === "sp" ? (
-                  <span key={i}>&nbsp;</span>
-                ) : (
-                  <span key={i} style={{ color: colorMap[p.t] ?? "#e0e0e0" }}>{p.v}</span>
-                )
-              )}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-
-  {/* Description + CTA — tetap di bawah sendiri */}
-  <div ref={subRef} style={{ opacity: 0, maxWidth: "440px" }}>
-    <p style={{ fontFamily: "var(--font-syne)", fontSize: "15px", lineHeight: "1.8", color: "var(--muted)", marginBottom: "28px" }}>
-      Fresh graduate S1 Sistem Informasi yang berfokus pada UI/UX Design. Merancang pengalaman digital yang bermakna, intuitif, dan berdampak bagi pengguna.
-    </p>
-    <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-      <a href="#work" className="btn-primary">
-        LIHAT KARYA
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <line x1="5" y1="12" x2="19" y2="12" />
-          <polyline points="12 5 19 12 12 19" />
-        </svg>
-      </a>
-      <a href="#contact" className="btn-outline">HUBUNGI SAYA</a>
-    </div>
-  </div>
-</div>
-
-      {/* Scroll indicator */ }
-  <div
-    ref={scrollRef}
-    style={{ position: "absolute", bottom: "32px", left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: "8px", opacity: 0 }}
-  >
-    <span className="float-label">SCROLL</span>
-    <div className="scroll-line" style={{ width: "1px", height: "48px", background: "var(--muted)" }} />
-  </div>
-    </section >
+    </section>
   );
 }

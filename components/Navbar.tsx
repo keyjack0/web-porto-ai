@@ -73,7 +73,7 @@ export default function Navbar() {
           style={{ gap: "36px" }}
         >
           {[
-            { href: "#work", label: "WORK" },
+            { href: "#project", label: "PROJECT" },
             { href: "#about", label: "ABOUT" },
             { href: "#skills", label: "SKILLS" },
             { href: "#contact", label: "CONTACT" },

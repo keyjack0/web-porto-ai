@@ -10,7 +10,7 @@ const Navbar = dynamic(() => import("@/components/Navbar"), { ssr: false });
 const FloatingMenu = dynamic(() => import("@/components/FloatingMenu"), { ssr: false });
 const HeroSection = dynamic(() => import("@/components/HeroSection"), { ssr: false });
 const MarqueeStrip = dynamic(() => import("@/components/MarqueeStrip"), { ssr: false });
-const WorkSection = dynamic(() => import("@/components/WorkSection"), { ssr: false });
+const ProjectSection = dynamic(() => import("@/components/ProjectSection"), { ssr: false });
 const AboutSection = dynamic(() => import("@/components/AboutSection"), { ssr: false });
 const SkillsSection = dynamic(() => import("@/components/SkillsSection"), { ssr: false }); 
 const ContactSection = dynamic(() => import("@/components/ContactSection"), { ssr: false });
@@ -33,7 +33,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <MarqueeStrip />
-        <WorkSection />
+        <ProjectSection />
         <AboutSection />
         {/* <SkillsSection /> */} {/* aktifkan jika ingin menampilkan bagian skills, pastikan juga untuk mengaktifkan bagian import dan refs yang di tandai --- IGNORE --- pada file components/SkillsSection.tsx */}
         <ContactSection />

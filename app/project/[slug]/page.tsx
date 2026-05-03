@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getProjectBySlug, projects } from "@/lib/projects";
 
@@ -22,7 +23,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
     <main style={{ padding: "96px clamp(20px, 5vw, 56px) 64px" }}>
       <div style={{ maxWidth: "980px", margin: "0 auto" }}>
         <div style={{ marginBottom: "40px" }}>
-          <Link href="/works" className="float-label hover-underline" style={{ textDecoration: "none", color: "var(--muted)" }}>
+          <Link href="/projects" className="float-label hover-underline" style={{ textDecoration: "none", color: "var(--muted)" }}>
             ← KEMBALI KE SEMUA KARYA
           </Link>
           <h1
@@ -35,6 +36,17 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
             {project.category}
           </p>
         </div>
+
+          <section className="project-card" style={{ padding: "28px", marginBottom: "18px" }}>
+          <p className="float-label" style={{ marginBottom: "12px" }}>Preview</p>
+          <div className="img-placeholder" style={{ minHeight: "280px", border: "1px solid var(--border-color)", position: "relative" }}>
+            <Image src={project.image} alt={project.imageAlt} fill sizes="(max-width: 980px) 100vw, 980px" style={{ objectFit: "cover",  objectPosition: "top" }} />
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.35), rgba(0,0,0,0.05) 45%, rgba(0,0,0,0))" }} />
+            <p className="float-label" style={{ position: "absolute", left: "16px", bottom: "14px", margin: 0, color: "#fff" }}>
+              {project.previewLabel}
+            </p>
+          </div>
+        </section>
 
         <section className="project-card" style={{ padding: "28px", marginBottom: "18px" }}>
           <p className="float-label" style={{ marginBottom: "12px" }}>Overview</p>
@@ -61,23 +73,6 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
         </section>
 
         <section className="project-card" style={{ padding: "28px", marginBottom: "18px" }}>
-          <p className="float-label" style={{ marginBottom: "12px" }}>Preview</p>
-          <div className="img-placeholder" style={{ minHeight: "280px", border: "1px solid var(--border-color)" }}>
-            <svg width="100%" height="100%" viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg">
-              <rect width="720" height="360" fill="var(--border-color)" />
-              <rect x="24" y="24" width="132" height="312" rx="14" fill="none" stroke="var(--muted)" opacity="0.45" />
-              <rect x="174" y="24" width="522" height="64" rx="12" fill="none" stroke="var(--muted)" opacity="0.35" />
-              <rect x="174" y="104" width="252" height="102" rx="12" fill="var(--muted)" opacity="0.1" />
-              <rect x="444" y="104" width="252" height="102" rx="12" fill="var(--muted)" opacity="0.14" />
-              <rect x="174" y="222" width="522" height="114" rx="12" fill="none" stroke="var(--muted)" opacity="0.32" />
-              <text x="360" y="344" textAnchor="middle" fontFamily="monospace" fontSize="11" fill="var(--muted)" letterSpacing="3">
-                {project.previewLabel}
-              </text>
-            </svg>
-          </div>
-        </section>
-
-        <section className="project-card" style={{ padding: "28px", marginBottom: "18px" }}>
           <p className="float-label" style={{ marginBottom: "12px" }}>Demo & Source Code</p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
             <a href={project.demoUrl ?? "#"} className="theme-btn" style={{ textDecoration: "none" }}>LIVE DEMO</a>
@@ -85,10 +80,10 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
           </div>
         </section>
 
-        <section className="project-card" style={{ padding: "28px" }}>
+        {/* <section className="project-card" style={{ padding: "28px" }}>
           <p className="float-label" style={{ marginBottom: "12px" }}>Challenges & Solution ⭐</p>
           <p style={{ fontSize: "14px", lineHeight: 1.9, color: "var(--muted)" }}>{project.challengeSolution}</p>
-        </section>
+        </section> */}
       </div>
     </main>
   );

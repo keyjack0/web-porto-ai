@@ -1,7 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { projects } from "@/lib/projects";
 
-export default function WorksPage() {
+export default function ProjectsPage() {
   return (
     <main style={{ padding: "96px clamp(20px, 5vw, 56px) 64px" }}>
       <div style={{ maxWidth: "1180px", margin: "0 auto" }}>
@@ -26,13 +27,12 @@ export default function WorksPage() {
         >
           {projects.map((work) => (
             <article key={work.id} className="project-card" style={{ display: "flex", flexDirection: "column" }}>
-              <div className="img-placeholder" style={{ minHeight: "170px", padding: "20px", alignItems: "flex-start" }}>
-                <div>
-                  <p className="float-label" style={{ marginBottom: "12px" }}>
-                    {work.id} — {work.category}
-                  </p>
-                  <h2 style={{ fontFamily: "var(--font-syne)", fontSize: "20px", lineHeight: 1.25 }}>{work.title}</h2>
-                </div>
+              <div className="img-placeholder" style={{ minHeight: "170px", position: "relative" }}>
+                <Image src={work.image} alt={work.imageAlt} fill sizes="(max-width: 900px) 100vw, 33vw" style={{ objectFit: "cover" }} />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.35), rgba(0,0,0,0.05) 45%, rgba(0,0,0,0))" }} />
+                <p className="float-label" style={{ position: "absolute", left: "14px", bottom: "12px", margin: 0, color: "#fff" }}>
+                  {work.id} — {work.category}
+                </p>
               </div>
               <div style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "14px", flexGrow: 1 }}>
                 <p style={{ fontSize: "13px", lineHeight: 1.8, color: "var(--muted)" }}>{work.description}</p>
