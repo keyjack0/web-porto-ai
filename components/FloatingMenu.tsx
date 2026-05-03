@@ -140,7 +140,7 @@ export default function FloatingMenu() {
             className="font-bebas"
             style={{ fontSize: "20px", letterSpacing: "0.12em", color: "var(--fg)" }}
           >
-            ARINDA.DEV
+            JACK.DEV
           </span>
         </div>
 
