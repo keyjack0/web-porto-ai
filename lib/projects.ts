@@ -98,34 +98,37 @@ export const projects: ProjectItem[] = [
       "UI minimalis dengan desain yang modern dan ringan."
     ],
     previewLabel: "LIVE DEMO PREVIEW",
-    demoUrl: "https://link-me-tau.vercel.app/", // Berdasarkan informasi umum project serupa
+    demoUrl: "#", 
     sourceUrl: "https://github.com/keyjack0/LinkMe",
 },
-  {
+{
     id: "04",
-    slug: "sehatku-mobile-app",
-    category: "HEALTH TECH",
-    title: "Sehatku Mobile App",
-    image: "/profile.jpeg",
-    imageAlt: "Preview Sehatku mobile app",
+    slug: "sistem-kasir-web",
+    category: "WEB DEVELOPMENT",
+    title: "Sistem Kasir Web",
+    image: "/sistem-kasir.png",
+    imageAlt: "Preview aplikasi sistem kasir",
     description:
-      "Aplikasi kesehatan personal dengan fokus pada pengalaman pengguna mobile-first dan alur monitoring harian yang sederhana.",
-    tags: ["FIGMA", "USER TESTING", "MOBILE FIRST"],
-    overview : [
-      "Aplikasi kesehatan personal untuk pemantauan kondisi harian, aktivitas, dan catatan kesehatan pengguna.",
+      "Aplikasi kasir berbasis web yang dirancang untuk mempermudah pencatatan transaksi dan pengelolaan data barang secara digital.",
+    tags: ["LARAVEL", "BOOTSTRAP", "PHP"],
+    overview: [
+      "Mengembangkan antarmuka sistem kasir yang berfokus pada kemudahan input data transaksi harian.",
+      "Membangun fitur manajemen produk untuk mengelola daftar barang, harga, dan stok yang tersedia di dalam sistem.",
+      "Mengimplementasikan logika perhitungan total belanja otomatis untuk meminimalisir kesalahan input manual.",
+      "Merancang struktur database yang efisien untuk menyimpan riwayat transaksi dan data pelanggan."
     ],
-    role: "Fullstack collaboration (UX + frontend ownership).",
-    techStack: ["Next.js", "TypeScript", "Figma", "GSAP"],
+    role: "Fullstack Developer.",
+    techStack: ["PHP", "Laravel", "MySQL", "Bootstrap", "JavaScript"],
     features: [
-      "Ringkasan kesehatan harian berbasis kartu.",
-      "Tracking aktivitas dan kebiasaan pengguna.",
-      "Pengingat rutin dan progress mingguan.",
-      "Flow onboarding personal berdasarkan kebutuhan pengguna.",
+      "Manajemen data barang dan kategori produk.",
+      "Sistem transaksi penjualan dengan kalkulasi otomatis.",
+      "Fitur pencetakan laporan atau struk transaksi.",
+      "Dashboard sederhana untuk melihat ringkasan aktivitas penjualan."
     ],
-    previewLabel: "HEALTH APP PREVIEW",
-    demoUrl: "#",
-    sourceUrl: "#",
-  },
+    previewLabel: "VIEW SOURCE CODE",
+    demoUrl: "#", 
+    sourceUrl: "https://github.com/keyjack0/sistem-kasir",
+},
 ];
 
 export function getProjectBySlug(slug: string) {

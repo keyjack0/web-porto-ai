@@ -140,7 +140,7 @@ function WideCard() {
           ))}
         </div>
         <Link href={`/project/${project.slug}`} className="float-label hover-underline" style={{ color: "var(--fg)", textDecoration: "none" }}>
-          LIHAT CASE STUDY →
+          LIHAT SELENGKAPNYA →
         </Link>
       </div>
     </div>

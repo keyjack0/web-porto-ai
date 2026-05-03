@@ -32,14 +32,14 @@ export default function HeroSection() {
   }, []);
 
   const codeLines = [
-    { num: "01", parts: [{ t: "kw", v: "const" }, { t: "sp" }, { t: "va", v: "vibecoder" }, { t: "sp" }, { t: "op", v: "=" }, { t: "sp" }, { t: "wh", v: "{" }] },
+    { num: "01", parts: [{ t: "kw", v: "const" }, { t: "sp" }, { t: "va", v: "coder" }, { t: "sp" }, { t: "op", v: "=" }, { t: "sp" }, { t: "wh", v: "{" }] },
     { num: "02", parts: [{ t: "ind" }, { t: "va", v: "name" }, { t: "op", v: ":" }, { t: "sp" }, { t: "st", v: "'Dzaky Hamid Al Aziz'" }, { t: "wh", v: "," }] },
-    { num: "03", parts: [{ t: "ind" }, { t: "va", v: "focus" }, { t: "op", v: ":" }, { t: "sp" }, { t: "st", v: "'junior web fullstack developer'" }, { t: "wh", v: "," }] },
+    { num: "03", parts: [{ t: "ind" }, { t: "va", v: "focus" }, { t: "op", v: ":" }, { t: "sp" }, { t: "st", v: "'fullstack developer'" }, { t: "wh", v: "," }] },
     { num: "04", parts: [{ t: "ind" }, { t: "va", v: "tools" }, { t: "op", v: ":" }, { t: "sp" }, { t: "wh", v: "[" }, { t: "st", v: "'Codeigniter'" }, { t: "wh", v: ", " }, { t: "st", v: "'Laravel'" }, { t: "wh", v: ", " }, { t: "st", v: "'Next.js'" }, { t: "wh", v: "]," }] },
     { num: "05", parts: [{ t: "ind" }, { t: "va", v: "passionate" }, { t: "op", v: ":" }, { t: "sp" }, { t: "bo", v: "true" }, { t: "wh", v: "," }] },
     { num: "06", parts: [{ t: "ind" }, { t: "va", v: "motto" }, { t: "op", v: ":" }, { t: "sp" }, { t: "st", v: '"Build with Passion"' }] },
     { num: "07", parts: [{ t: "wh", v: "};" }] },
-    { num: "08", parts: [{ t: "va", v: "vibecoder" }, { t: "op", v: "." }, { t: "va", v: "show" }, { t: "wh", v: "();" }] },
+    { num: "08", parts: [{ t: "va", v: "coder" }, { t: "op", v: "." }, { t: "va", v: "show" }, { t: "wh", v: "();" }] },
   ];
 
   const colorMap: Record<string, string> = {
