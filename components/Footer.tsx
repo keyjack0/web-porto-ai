@@ -105,10 +105,10 @@ export default function Footer() {
   }}
 >
   <div className="float-label" style={{ fontSize: "12px", letterSpacing: "2px" }}>
-    © {year} — UI/UX DESIGNER 
+    © {year} — FULLSTACK DEVELOPER
   </div>
   <div className="float-label" style={{ fontSize: "12px", letterSpacing: "2px" }}>
-    PALEMBANG, ID
+    YOGYAKARTA, ID
   </div>
 </div>
       </div>

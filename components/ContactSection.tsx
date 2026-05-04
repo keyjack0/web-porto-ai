@@ -36,11 +36,34 @@ export default function ContactSection() {
     });
   }, []);
 
-  const handleSubmit = (e: React.MouseEvent) => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) return;
-    gsap.to(e.currentTarget, { scale: 0.95, duration: 0.1, yoyo: true, repeat: 1 });
-    setTimeout(() => setSent(true), 200);
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch(process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || "", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) {
+        setError("Gagal mengirim pesan");
+        return;
+      }
+
+      setSent(true);
+    } catch {
+      setError("Terjadi kesalahan. Coba lagi nanti.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -93,7 +116,6 @@ export default function ContactSection() {
               yang luar biasa.
             </p>
 
-            {/* Social links */}
             {/* Social links */}
             <div
               style={{
@@ -178,7 +200,7 @@ export default function ContactSection() {
                 </p>
               </div>
             ) : (
-              <div style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
+              <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
                 {/* Name */}
                 <div>
                   <label className="float-label" style={{ display: "block", marginBottom: "8px" }}>
@@ -200,7 +222,7 @@ export default function ContactSection() {
                   </label>
                   <input
                     type="email"
-                    placeholder="dzakyhamid9@gmail.com"
+                    placeholder="example@gmail.com"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     className="form-input"
@@ -224,17 +246,29 @@ export default function ContactSection() {
 
                 {/* Submit */}
                 <button
-                  onClick={handleSubmit}
+                  type="submit"
+                  disabled={loading}
                   className="btn-primary"
-                  style={{ alignSelf: "flex-start", marginTop: "8px" }}
+                  style={{
+                    alignSelf: "flex-start",
+                    marginTop: "8px",
+                    opacity: loading ? 0.6 : 1,
+                    cursor: loading ? "not-allowed" : "pointer",
+                  }}
                 >
-                  KIRIM PESAN
+                  {loading ? "MENGIRIM..." : "KIRIM PESAN"}
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="12 5 19 12 12 19" />
                   </svg>
                 </button>
-              </div>
+
+                {error && (
+                  <p style={{ fontSize: "13px", color: "#ef4444", marginTop: "4px" }}>
+                    {error}
+                  </p>
+                )}
+              </form>
             )}
           </div>
         </div>
