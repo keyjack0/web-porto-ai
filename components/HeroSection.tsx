@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -73,8 +75,8 @@ export default function HeroSection() {
       <div style={{ maxWidth: "1280px", margin: "0 auto", width: "100%" }}>
         {/* Label */}
         <div ref={labelRef} className="flex items-center" style={{ gap: "12px", marginBottom: "20px", opacity: 0 }}>
-          <div style={{ width: "24px", height: "1px", background: "var(--muted)" }} />
-          <span className="float-label">001 — INTRODUCTION</span>
+          {/* <div style={{ width: "24px", height: "1px", background: "var(--muted)" }} /> */}
+          {/* <span className="float-label">001 — INTRODUCTION</span> */}
         </div>
 
         {/* Title + Code Card row */}
