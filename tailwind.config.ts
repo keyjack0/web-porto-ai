@@ -10,10 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        bebas: ["var(--font-bebas)", "cursive"],
-        serif: ["var(--font-dm-serif)", "serif"],
-        syne: ["var(--font-syne)", "sans-serif"],
-        mono: ["var(--font-jetbrains)", "monospace"],
+        poppins: ["var(--font-poppins)", "sans-serif"],
       },
       colors: {
         bg: "var(--bg)",

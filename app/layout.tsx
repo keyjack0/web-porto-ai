@@ -1,31 +1,11 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, DM_Serif_Display, Syne, JetBrains_Mono } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 
-const bebasNeue = Bebas_Neue({
-  weight: "400",
+const poppins = Poppins({
+  weight: ["300", "400", "500", "600", "700", "800"],
   subsets: ["latin"],
-  variable: "--font-bebas",
-  display: "swap",
-});
-
-const dmSerifDisplay = DM_Serif_Display({
-  weight: ["400"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  variable: "--font-dm-serif",
-  display: "swap",
-});
-
-const syne = Syne({
-  subsets: ["latin"],
-  variable: "--font-syne",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains",
+  variable: "--font-poppins",
   display: "swap",
 });
 
@@ -52,7 +32,7 @@ export default function RootLayout({
     <html
       lang="id"
       data-theme="dark"
-      className={`${bebasNeue.variable} ${dmSerifDisplay.variable} ${syne.variable} ${jetbrainsMono.variable}`}
+      className={`${poppins.variable}`}
       suppressHydrationWarning
     >
       <body>{children}</body>

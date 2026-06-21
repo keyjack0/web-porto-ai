@@ -88,10 +88,10 @@ export default function AboutSection() {
       >
         {/* Left: Photo */}
         <div>
-          <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px" }}>
+          {/* <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "32px" }}>
             <div style={{ width: "24px", height: "1px", background: "var(--muted)" }} />
             <span className="float-label">003 — ABOUT ME</span>
-          </div>
+          </div> */}
 
           <div style={{ position: "relative" }}>
             <div
@@ -153,11 +153,11 @@ export default function AboutSection() {
               marginBottom: "28px",
             }}
           >
-            MERANCANG
-            <br />
+            Tentang Saya
+            {/* <br />
             <em
               style={{
-                fontFamily: "var(--font-dm-serif)",
+                fontFamily: "var(--font-poppins)",
                 fontSize: "0.65em",
                 color: "var(--muted)",
                 fontWeight: 400,
@@ -167,7 +167,7 @@ export default function AboutSection() {
               pengalaman yang
             </em>
             <br />
-            BERMAKNA
+            BERMAKNA */}
           </h2>
 
           <p
@@ -189,7 +189,7 @@ export default function AboutSection() {
               marginBottom: "40px",
             }}
           >
-            Memiliki beberapa pengalaman dalam membangun aplikasi menggunakan teknologi seperti Next.js, Laravel, dan codeigniter, serta memahami alur sistem mulai dari frontend hingga backend — saya terus belajar untuk mengembangkan solusi digital yang optimal dan scalable.
+            Memiliki beberapa pengalaman dalam membangun aplikasi menggunakan teknologi seperti Next.js, Laravel, dan codeigniter, serta memahami alur sistem mulai dari frontend hingga backend - saya terus belajar untuk mengembangkan solusi digital yang optimal dan scalable.
           </p>
           {/* Timeline */}
           <div className="float-label" style={{ marginBottom: "24px" }}>
@@ -214,7 +214,7 @@ export default function AboutSection() {
                   <div>
                     <div
                       style={{
-                        fontFamily: "var(--font-syne)",
+                        fontFamily: "var(--font-poppins)",
                         fontSize: "14px",
                         fontWeight: 600,
                         color: "var(--fg)",

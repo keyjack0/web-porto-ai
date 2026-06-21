@@ -10,7 +10,7 @@ Website portofolio personal bergaya editorial brutalist dengan animasi GSAP, tog
 - **TypeScript**
 - **Tailwind CSS v3**
 - **GSAP 3** (ScrollTrigger, animasi)
-- **Google Fonts** — Bebas Neue, DM Serif Display, Syne, JetBrains Mono
+- **Google Fonts** — Poppins (300–700)
 
 ## Cara Install & Jalankan
 

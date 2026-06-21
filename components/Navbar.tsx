@@ -6,11 +6,20 @@ import gsap from "gsap";
 export default function Navbar() {
   const [isDark, setIsDark] = useState(true);
 
-  useEffect(() => {
-    const stored = localStorage.getItem("theme") ?? "dark";
-    setIsDark(stored === "dark");
-    document.documentElement.setAttribute("data-theme", stored);
-  }, []);
+useEffect(() => {
+  const stored = localStorage.getItem("theme") ?? "dark";
+  setIsDark(stored === "dark");
+
+  const observer = new MutationObserver(() => {
+    const theme = document.documentElement.getAttribute("data-theme");
+    setIsDark(theme === "dark");
+  });
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-theme"],
+  });
+  return () => observer.disconnect();
+}, []);
 
   const toggleTheme = () => {
     const next = isDark ? "light" : "dark";
@@ -56,15 +65,17 @@ export default function Navbar() {
         {/* Logo */}
         <a
           href="#"
-          className="font-bebas hover-underline"
           style={{
-            fontSize: "22px",
-            letterSpacing: "0.12em",
-            color: "var(--fg)",
             textDecoration: "none",
+            display: "flex",
+            alignItems: "center",
           }}
         >
-          JACK.DEV
+          <img
+            src={isDark ? "/D.white.png" : "/D.black.png"}
+            alt="Logo"
+            style={{ height: "36px", width: "auto" }}
+          />
         </a>
 
         {/* Nav Links */}
@@ -125,7 +136,7 @@ export default function Navbar() {
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
             </svg>
           )}
-          <span style={{ fontFamily: "var(--font-jetbrains)", fontSize: "10px", letterSpacing: "0.12em" }}>
+          <span style={{ fontFamily: "var(--font-poppins)", fontSize: "10px", letterSpacing: "0.12em" }}>
             {isDark ? "SIANG" : "MALAM"}
           </span>
         </button>

@@ -88,7 +88,7 @@ function ProjectCard({ project, imgHeight }: CardProps) {
         <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: "10px" }}>
           <div>
             <div className="float-label" style={{ marginBottom: "5px" }}>{project.id} — {project.category}</div>
-            <h3 style={{ fontFamily: "var(--font-syne)", fontSize: "17px", fontWeight: 700, color: "var(--fg)", lineHeight: 1.3 }}>
+            <h3 style={{ fontFamily: "var(--font-poppins)", fontSize: "17px", fontWeight: 700, color: "var(--fg)", lineHeight: 1.3 }}>
               {project.title}
             </h3>
           </div>
@@ -165,10 +165,10 @@ export default function ProjectSection() {
         {/* Heading */}
         <div ref={headRef} style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: "64px", opacity: 0 }}>
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+            {/* <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
               <div style={{ width: "24px", height: "1px", background: "var(--muted)" }} />
               <span className="float-label">002 — SELECTED PROJECT</span>
-            </div>
+            </div> */}
             <h2 className="font-bebas" style={{ fontSize: "clamp(52px, 9vw, 120px)", lineHeight: "0.87", letterSpacing: "-0.02em", color: "var(--fg)" }}>
               KARYA<br /><span className="text-ghost">PILIHAN</span>
             </h2>

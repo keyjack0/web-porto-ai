@@ -14,7 +14,7 @@ export default function HeroSection() {
   const codeCardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const run = () => {
+    // const run = () => {
       const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
 
       tl.fromTo(labelRef.current, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.7 })
@@ -27,10 +27,10 @@ export default function HeroSection() {
           "-=0.8"
         )
         .fromTo(scrollRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, "-=0.3");
-    };
+    // };
 
-    window.addEventListener("loaderDone", run);
-    return () => window.removeEventListener("loaderDone", run);
+    // window.addEventListener("loaderDone", run);
+    // return () => window.removeEventListener("loaderDone", run);
   }, []);
 
   const codeLines = [
@@ -141,7 +141,7 @@ export default function HeroSection() {
                   display: "flex",
                   alignItems: "center",
                   gap: "6px",
-                  fontFamily: "var(--font-mono, monospace)",
+                  fontFamily: "var(--font-poppins)",
                   fontSize: "11px",
                   color: "#fff",
                   background: "rgba(224, 224, 224, 0.13)",
@@ -193,7 +193,7 @@ export default function HeroSection() {
         <div ref={subRef} style={{ opacity: 0, maxWidth: "440px" }}>
           <p
             style={{
-              fontFamily: "var(--font-syne)",
+              fontFamily: "var(--font-poppins)",
               fontSize: "15px",
               lineHeight: "1.8",
               color: "var(--muted)",

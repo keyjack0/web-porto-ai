@@ -1,13 +1,29 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Footer() {
+  const [isDark, setIsDark] = useState(true);
   const ref = useRef<HTMLElement>(null);
+
+useEffect(() => {
+  const stored = localStorage.getItem("theme") ?? "dark";
+  setIsDark(stored === "dark");
+
+  const observer = new MutationObserver(() => {
+    const theme = document.documentElement.getAttribute("data-theme");
+    setIsDark(theme === "dark");
+  });
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-theme"],
+  });
+  return () => observer.disconnect();
+}, []);
 
   useEffect(() => {
     gsap.fromTo(
@@ -53,16 +69,19 @@ export default function Footer() {
         >
           <a
             href="#"
-            className="foot-item font-bebas hover-underline"
+            className="foot-item"
             style={{
-              fontSize: "22px",
-              letterSpacing: "0.12em",
-              color: "var(--fg)",
               textDecoration: "none",
+              display: "flex",
+              alignItems: "center",
               opacity: 0,
             }}
           >
-            JACK.DEV
+            <img
+              src={isDark ? "/D.white.png" : "/D.black.png"}
+              alt="Logo"
+              style={{ height: "36px", width: "auto" }}
+            />
           </a>
 
          

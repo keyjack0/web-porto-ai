@@ -3,7 +3,8 @@
 import { useEffect } from "react";
 import dynamic from "next/dynamic";
 // import Cursor from "@/components/Cursor";
-import Loader from "@/components/Loader";
+import LinePattern from "@/components/LinePattern";
+// import Loader from "@/components/Loader";
 
 // Dynamically import components that use GSAP
 const Navbar = dynamic(() => import("@/components/Navbar"), { ssr: false });
@@ -26,7 +27,8 @@ export default function Home() {
   return (
     <>
       {/* <Cursor /> */}
-      <Loader />
+      <LinePattern />
+      {/* <Loader /> */}
       <Navbar />
       <FloatingMenu />
 

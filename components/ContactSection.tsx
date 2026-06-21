@@ -52,10 +52,10 @@ export default function ContactSection() {
       <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
 
         {/* Section label */}
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+        {/* <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
           <div style={{ width: "24px", height: "1px", background: "var(--muted)" }} />
           <span className="float-label">005 — CONTACT</span>
-        </div>
+        </div> */}
 
         {/* Big heading */}
         <div ref={headRef} style={{ marginBottom: "72px", opacity: 0 }}>
